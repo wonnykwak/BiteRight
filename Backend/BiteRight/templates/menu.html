@@ -6,14 +6,151 @@
     <meta charset="UTF-8">
     <title>Menu Viewer</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="stylesheet" href="{% static 'css/app.css' %}"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden;
+            background-color: #FFF2E1;
+            margin: 0; 
+            padding: 0;
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+          }
+          
+          .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            grid-gap: 30px; 
+            margin: 20px;
+            color: black;
+          }
+          
+          fieldset {
+            border: 2px solid, black;
+            background-color: #FEFAF6;
+            border-radius: 10px;
+            padding: 20px; 
+            margin: 0;
+            font-family: "K2D", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+            
+          }
+          
+          form {
+            margin: auto;
+            width: 90%;
+          }
+          
+          .container {
+            
+            width: 100%;
+            max-width: 80vw; 
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 10px;
+          }
+          
+          button {
+            position: absolute;
+            bottom: 52px;
+            right: 20px; 
+            padding: 10px 20px;
+            background-color: #B5C0D0;
+            color: #000000;
+            border: 2px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+          }
+          
+          button:hover {
+            background-color: rgba(194, 194, 194, 0.502);
+          }
+        
+          .home-title{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-family: "K2D", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+          }
+        
+          
+    </style>
 </head>
 <body>
-    <div id="dining-menu-from-json" data-dining-menu-json-url="https://my.pomona.edu/eatec/Frank.json">
-        <!-- Menu will load here -->
-    </div>
-    <div id="dining-menu-error"></div>
+    
+    <form method="post" action="{% url 'your_view_name' %}">
+        {% csrf_token %}
+        <div class="container">
+           
+            <h1 class="home-title">Dietary Restrictions Checklist</h1>
+            
+              <div class="grid-container">
+                <fieldset>
+                  <legend><strong>Autoimmune Diseases</strong></legend>
+                  <label><input type="checkbox" name="Celiac"> Celiac Disease</label>
+                  <label><input type="checkbox" name="IBD"> Inflammatory Bowel Disease (IBD)</label>
+                  <label><input type="checkbox" name="PCOS"> Polycystic Ovary Syndrome</label>
+                  <label><input type="checkbox" name="RA"> Rheumatoid Arthritis</label>
+                  <label><input type="checkbox" name="Hashimoto"> Hashimoto’s Disease</label>
+                  <label><input type="checkbox" name="Lupus"> Lupus</label>
+                  <label><input type="checkbox" name="Type1Diabetes"> Type 1 Diabetes</label>
+                  <label><input type="checkbox" name="Psoriasis"> Psoriasis</label>
+                </fieldset>
+          
+                <fieldset>
+                  <legend><strong>Religious and Cultural Restrictions</strong></legend>
+                  <label><input type="checkbox" name="Hinduism"> Hinduism</label>
+                  <label><input type="checkbox" name="Buddhism"> Buddhism</label>
+                  <label><input type="checkbox" name="Islam"> Islam</label>
+                  <label><input type="checkbox" name="SeventhDayAdventists"> Seventh-Day Adventists</label>
+                </fieldset>
+          
+                <fieldset>
+                  <legend><strong>Common Food Allergies and Intolerances</strong></legend>
+                  <label><input type="checkbox" name="Lactose"> Lactose Intolerance</label>
+                  <label><input type="checkbox" name="Gluten"> Gluten Intolerance</label>
+                  <label><input type="checkbox" name="Histamine"> Histamine Intolerance</label>
+                  <label><input type="checkbox" name="Fructose"> Fructose Intolerance</label>
+                  <label><input type="checkbox" name="Egg"> Egg Allergy/Intolerance</label>
+                  <label><input type="checkbox" name="Peanut"> Peanut Allergy</label>
+                  <label><input type="checkbox" name="TreeNut"> Tree Nut Allergy</label>
+                  <label><input type="checkbox" name="Fish"> Fish Allergy</label>
+                  <label><input type="checkbox" name="Shellfish"> Shellfish Allergy</label>
+                  <label><input type="checkbox" name="Soy"> Soy Allergy</label>
+                  <label><input type="checkbox" name="Wheat"> Wheat Allergy</label>
+                </fieldset>
+          
+                <fieldset>
+                  <legend><strong>Gastrointestinal Disorders</strong></legend>
+                  <label><input type="checkbox" name="IBS"> Irritable Bowel Syndrome (IBS)</label>
+                  <label><input type="checkbox" name="Crohns"> Crohn’s Disease</label>
+                  <label><input type="checkbox" name="Diverticulitis"> Diverticulitis</label>
+                  <label><input type="checkbox" name="Pancreatitis"> Pancreatitis</label>
+                  <label><input type="checkbox" name="PepticUlcers"> Peptic Ulcers</label>
+                </fieldset>
+                
+              </div>
+             
+        <button id="submitButton" type="submit">Next</button>
+    </form>
 
-    <!-- Reference to your JavaScript file -->
-    <script src="{% static 'js/menu_script.js' %}"></script>
 </body>
 </html>

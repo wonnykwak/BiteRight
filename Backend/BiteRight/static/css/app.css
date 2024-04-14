@@ -1,0 +1,81 @@
+body {
+    overflow: hidden;
+    background-color: #FFF2E1;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Set height to full viewport height */
+    display: flex; /* Use flexbox */
+    flex-direction: column; 
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two columns */
+    grid-gap: 30px; /* space between grid items */
+    margin: 20px;
+    color: black;
+  }
+  
+  fieldset {
+    border: 2px solid, black;
+    background-color: #FEFAF6;
+    border-radius: 10px;
+    padding: 20px; /* adjust as needed */
+    margin: 0;
+    font-family: "K2D", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    
+  }
+  
+  form {
+    margin: auto;
+    width: 90%;
+  }
+  
+  .container {
+    
+    width: 100%;
+    max-width: 80vw; /* adjust based on preference */
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;  /* Align to the bottom right, 40px from the right side */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgba(194, 194, 194, 0.502);
+  }
+
+  .home-title{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "K2D", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  

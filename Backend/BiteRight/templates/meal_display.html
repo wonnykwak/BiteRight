@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <title >Meal Display by Dining Hall</title>
+    <style>
+        body {
+            background-color: #FFF2E1;
+            font-family: "K2D", sans-serif;
+        }
+        .main-title, h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        p {
+           
+            margin: 0;
+            text-align: left;
+        }
+        .dining-halls-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .dining-hall {
+            width: 48%;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: white;
+            border-radius: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        h2, h3 {
+            color: #333;
+            font-weight: 500;
+        }
+        .heading2-div{
+            text-align: center;
+            max-width: 36%;
+        }
+        .aimessage{
+            background-color: #f8f8f8; 
+            border: 2px solid #d3d3d3; 
+            border-radius: 10px; 
+            padding: 20px; 
+            width: 80%;
+            margin: 20px auto; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="main-title">BiteRight Recommends:</h1>
+
+    
+    <div class="aimessage">
+        <p> {{ai_message}} </p>
+    </div>  
+    <div class="heading2-div">
+        <h2> With your dietary restrictions you can eat:</h2>
+    </div>
+    
+
+    <div class="dining-halls-container">
+        {% for dining_hall, meals_by_period in meals_by_dining_hall.items %}
+        <div class="dining-hall">
+            <h2>{{ dining_hall }} Dining Hall</h2>
+            {% for period, dishes in meals_by_period.items %}
+            <h3>{{ period }}</h3>
+            <ul>
+                {% for dish in dishes %}
+                <li>{{ dish }}</li>
+                {% empty %}
+                <li>No meals available for this period.</li>
+                {% endfor %}
+            </ul>
+            {% empty %}
+            <p>No meal periods available for {{ dining_hall }}.</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
