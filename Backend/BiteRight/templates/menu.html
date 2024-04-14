@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Viewer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="dining-menu-from-json" data-dining-menu-json-url="https://my.pomona.edu/eatec/Frank.json">
+        <!-- Menu will load here -->
+    </div>
+    <div id="dining-menu-error"></div>
+
+    <!-- Reference to your JavaScript file -->
+    <script src="{% static 'js/menu_script.js' %}"></script>
+</body>
+</html>
