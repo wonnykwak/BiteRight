@@ -1,5 +1,6 @@
 # BiteRight
 WON: BEST 5CHACK
+
 Our project, entitled Bite Right, is a personalized dietary advice web application developed as part of the Maker Track. Our project aims to make dining experiences more accessible for individuals with specific dietary restrictions that go beyond the pre-outlined allergens found on the 5c menus website. Depending on given restrictions, we filter out ingredients that are incompatible with the individual’s diet, including those related to autoimmune diseases, religious beliefs, as well as common food allergies and intolerances. We understand the direct impact of our information on users’ health, and to mitigate this, we ensured its accuracy by manually entering, and double-checking meal ingredients, as well as seeking input from individuals with these specific restrictions to tailor our filtering system as accurately as possible.
 
 We aimed to tackle the difficulty people with specific dietary restrictions face when identifying suitable meals. Our motivation stemmed from our interactions with fellow students at the 5Cs, who expressed a need for a more nuanced meal filtering system. We believe our project matters because it addresses a change in the dining experience for a large number of people. We see our project as a step towards a more inclusive world where dietary restrictions are not a barrier to enjoying meals.
